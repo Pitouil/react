@@ -1,21 +1,25 @@
-import {Container} from 'react-bootstrap';
-import {Navbar} from 'react-bootstrap';
-import {Nav} from 'react-bootstrap';
+import {Outlet, Link} from "react-router-dom";
 
 export const Header = () => {
 
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Brand href="#home">Pendu</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#features">Nouveau jeu</Nav.Link>
-                        {/*<Nav.Link href="#pricing">Pricing</Nav.Link>*/}
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <>
+            <nav className="navbar navbar-expand-lg bg-light">
+                <div className="container-fluid">
+                    <Link className={'navbar-brand'} to={'/'}>Pendu</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-nav">
+                            <Link className={'nav-link'} to={'/game'}>Nouveau jeu</Link>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        <Outlet/>
+        </>
     );
 }
